@@ -173,6 +173,7 @@ resource "aws_iam_user_policy" "sac_user_policy" {
   name = "test_sac_user_policy"
   user = aws_iam_user.sac_user.name
   policy = jsonencode({
+    # oak9: Avoid using wildcards for actions. Also, use group policies instead
     Version = "2012-10-17"
     Statement = [
       {
