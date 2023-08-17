@@ -11,6 +11,7 @@ resource "aws_sqs_queue" "sac_sqs" {
 resource "aws_sqs_queue_policy" "sac_sqs_policy" {
   queue_url = aws_sqs_queue.sac_sqs.id
   policy    = <<EOF
+  # oak9: Explicitly define resources in SQS policies
   # oak9: Explicitly grant access to principals in SQS policies
   # oak9: Avoid using wildcards in queue policy actions
 {
