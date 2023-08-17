@@ -11,6 +11,7 @@ resource "aws_kms_key" "kms_key_sac" {
   enable_key_rotation      = false
   is_enabled               = false
   policy = <<EOF
+  # oak9: KMS key policy allows any action using * (wildcards)
 {
   "Version": "2012-10-17",
   "Statement": [
