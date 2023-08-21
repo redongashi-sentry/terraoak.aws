@@ -53,7 +53,7 @@ resource "aws_lb" "elbv2_sac" {
   subnets = [aws_subnet.apigwv2_subnet.id, aws_subnet.apigwv2_subnet_2.id]
 }
 
-resource "aws_lb_listener" "elbv2_listener" {
+resource "aws_lb_listener" "elbv2_listener" { # oak9:  should be set to any of https, tls
   load_balancer_arn = aws_lb.elbv2_sac.arn
   port = 99
   default_action {
