@@ -7,6 +7,7 @@ resource "aws_sns_topic" "sac_sns_topic" {
 resource "aws_sns_topic_policy" "sac_sns_policy" {
   arn = aws_sns_topic.sac_sns_topic.arn
   policy = <<EOF
+  # oak9: Avoid using wildcards in topics policy actions
 {
   "Version": "2012-10-17",
   "Statement": [
