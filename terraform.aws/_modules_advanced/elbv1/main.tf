@@ -5,7 +5,7 @@ resource "aws_elb" "sac_elbv1" {
   internal = false
   listener {
     instance_port      = 8000
-    instance_protocol  = "HTTP"
+    instance_protocol  = "HTTP" # oak9: listener.instance_protocol should be set to any of ['HTTPS', 'SSL']
     lb_port            = 80
     lb_protocol        = "HTTP" # oak9: listener.lb_protocol should be set to any of ['HTTPS', 'SSL']
   }
