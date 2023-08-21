@@ -12,7 +12,7 @@ resource "aws_db_instance" "sac_db_instance" {
   db_subnet_group_name = aws_db_subnet_group.sac_rds_subnet_group.name
   deletion_protection     = false
   engine_version          = "8.0"
-  iam_database_authentication_enabled = false
+  iam_database_authentication_enabled = true
   multi_az = false
   publicly_accessible     = true
   # oak9: RDS Database Instance is publicly accessible
