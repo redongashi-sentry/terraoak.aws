@@ -108,6 +108,7 @@ resource "aws_iam_role_policy" "sac_api_gateway_role_policy" {
   name = "sac-testing-apigw-cloudwatch-role-policy"
   role = aws_iam_role.sac_api_gateway_role.id
   policy = <<EOF
+  # oak9: Explicitly define resources in roles
 {
     "Version": "2012-10-17",
     "Statement": [
