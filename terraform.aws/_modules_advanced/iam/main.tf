@@ -75,6 +75,7 @@ resource "aws_iam_role" "sac-role" {
 resource "aws_iam_role_policy" "s3_access" {
   name = "s3_access_policy"
   policy = jsonencode({
+    # oak9: Avoid using wildcards ['*'] in IAM actions
     Version = "2012-10-17"
     Statement = [
       {
