@@ -23,7 +23,7 @@ resource "aws_elasticsearch_domain" "sac_elasticsearch_domain" {
     enabled = false
   }
   domain_endpoint_options {
-    enforce_https = false
+    enforce_https = true
     tls_security_policy = "policy-min-tls-1-2-2019-07"
   }
   node_to_node_encryption {
