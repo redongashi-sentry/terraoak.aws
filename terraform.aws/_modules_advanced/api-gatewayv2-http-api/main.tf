@@ -17,7 +17,7 @@ resource "aws_apigatewayv2_api_mapping" "api" {
   domain_name_configuration {
     certificate_arn = "acm-cert-arn"
     endpoint_type   = "REGIONAL"
-    security_policy = "TLS_1_1"
+    security_policy = "tls_1_2"
   }
 }
 
