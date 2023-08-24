@@ -39,6 +39,7 @@ resource "aws_iam_role" "sac-role" {
 resource "aws_iam_policy" "sac-policy" {
   name_prefix = "sac-policy"
   policy = jsonencode({
+    # oak9: Avoid using wildcards ['*'] in IAM actions
     Version = "2012-10-17"
     Statement = [
       {
