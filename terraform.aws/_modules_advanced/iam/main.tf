@@ -136,6 +136,7 @@ resource "aws_iam_role" "sac-role" {
 resource "aws_iam_role" "sac-role" {
   name = "my_sac_role"
   assume_role_policy = jsonencode({
+    # oak9: Explicitly grant access to principals in assume role policies
     Version = "2012-10-17"
     Statement = [
       {
