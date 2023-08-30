@@ -3,11 +3,12 @@ resource "aws_elb" "sac_elbv1" {
   name               = "sac-elbv1"
   subnets = [ aws_subnet.elbv1_subnet1.id ]
   internal = false
+  # oak9: Load balancer is internet accessible
   listener {
     instance_port      = 8000
-    instance_protocol  = "HTTP"
+    instance_protocol  = "HTTP" # oak9: listener.instance_protocol should be set to any of ['HTTPS', 'SSL']
     lb_port            = 80
-    lb_protocol        = "HTTP"
+    lb_protocol        = "HTTP" # oak9: listener.lb_protocol should be set to any of ['HTTPS', 'SSL']
   }
   health_check {
     healthy_threshold   = 2

@@ -3,6 +3,8 @@ resource "aws_iam_group_policy" "sac_iam_group_policy" {
   name  = "my_developer_policy"
   group = aws_iam_group.sac_iam_group.name
   policy = jsonencode({
+    # oak9: Explicitly define resources in group policies
+    # oak9: Avoid using wildcards ['*'] in IAM actions
     Version = "2012-10-17"
     Statement = [
       {
@@ -39,6 +41,8 @@ resource "aws_iam_role" "sac-role" {
 resource "aws_iam_policy" "sac-policy" {
   name_prefix = "sac-policy"
   policy = jsonencode({
+    # oak9: Explicitly define resources in IAM policies
+    # oak9: Avoid using wildcards ['*'] in IAM actions
     Version = "2012-10-17"
     Statement = [
       {
@@ -75,6 +79,8 @@ resource "aws_iam_role" "sac-role" {
 resource "aws_iam_role_policy" "s3_access" {
   name = "s3_access_policy"
   policy = jsonencode({
+    # oak9: Explicitly define resources in roles
+    # oak9: Avoid using wildcards ['*'] in IAM actions
     Version = "2012-10-17"
     Statement = [
       {
@@ -136,6 +142,7 @@ resource "aws_iam_role" "sac-role" {
 resource "aws_iam_role" "sac-role" {
   name = "my_sac_role"
   assume_role_policy = jsonencode({
+    # oak9: Explicitly grant access to principals in assume role policies
     Version = "2012-10-17"
     Statement = [
       {
@@ -173,6 +180,8 @@ resource "aws_iam_user_policy" "sac_user_policy" {
   name = "test_sac_user_policy"
   user = aws_iam_user.sac_user.name
   policy = jsonencode({
+    # oak9: Avoid using wildcards for resources. Also, use group policies instead
+    # oak9: Avoid using wildcards for actions. Also, use group policies instead
     Version = "2012-10-17"
     Statement = [
       {
